@@ -65,8 +65,8 @@ index 781eb0345..afc907048 100644
  			brightness = LED_OFF;
  			led_data->base_color = MLXREG_LED_GREEN_SOLID;
  		}
--		sprintf(led_data->led_cdev_name, "%s:%s", "mlxreg",
--			data->label);
+-		snprintf(led_data->led_cdev_name, sizeof(led_data->led_cdev_name),
+-			 "mlxreg:%s", data->label);
 +
 +		/*
 +		 * Id greater than zero is used for LEDs located on replaceable unit,

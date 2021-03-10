@@ -240,10 +240,10 @@ index e04d521d9376..10754f704c7d 100644
 +	if (err)
 +		return err;
 +
- 	dev_info(&client->dev, "Firmware revision: %d.%d.%d\n",
- 		 mlxsw_i2c->bus_info.fw_rev.major,
- 		 mlxsw_i2c->bus_info.fw_rev.minor,
-@@ -663,6 +744,7 @@ static int mlxsw_i2c_remove(struct i2c_client *client)
+ 	return 0;
+ 
+ errout:
+@@ -658,6 +739,7 @@ static int mlxsw_i2c_remove(struct i2c_client *client)
  {
  	struct mlxsw_i2c *mlxsw_i2c = i2c_get_clientdata(client);
  
