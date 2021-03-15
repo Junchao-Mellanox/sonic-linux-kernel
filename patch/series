@@ -71,11 +71,17 @@ driver-ixgbe-external-phy.patch
 0019-mlxsw-i2c-Allow-flexible-setting-of-I2C-transactions.patch
 0020-mlxsw-core-Set-different-thermal-polling-time-based.patch
 0021-platform-x86-mlx-platform-Remove-PSU-EEPROM-configur.patch
-0022-mlxsw-core-Increase-critical-threshold-for-ASIC-ther.patch
 0023-mlxsw-core-Add-validation-of-transceiver-temperature.patch
 0024-mlxsw-core-Fix-memory-leak-on-module-removal.patch
 0025-platform-x86-mlx-platform-Remove-PSU-EEPROM-configur.patch
 0026-platform-x86-mlx-platform-Remove-PSU-EEPROM-configur.patch
+0027-hwmon-pmbus-Add-support-for-MPS-Multi-phase-mp2975-c.patch
+0028-hwmon-Add-convience-macro-to-define-simple-static-se.patch
+0029-backport-nvme-Add-hardware-monitoring-support.patch
+0030-platform-x86-mlx-platform-Extend-FAN-and-LED-config-.patch
+0031-mlxsw-core-Increase-critical-threshold-for-ASIC-ther.patch
+0032-hwmon-pmbus-Add-support-for-MPS-Multi-phase-mp2888-c.patch
+0033-platform-mellanox-Add-dedicated-match-for-system-typ.patch
 ############################################################
 #
 # Internal patches will be added below (placeholder)
