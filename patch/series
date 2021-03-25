@@ -114,6 +114,7 @@ driver-ixgbe-external-phy.patch
 0065-mlxsw-core_hwmon-Add-line-card-support.patch
 0066-mlxsw-minimal-Add-support-line-card-ready-unready-ev.patch
 0067-platform-x86-mlx-platform-Extend-register-space-with.patch
+0068-mlxsw-core-Remove-critical-trip-point-from-thermal-z.patch
 ############################################################
 #
 # Internal patches will be added below (placeholder)
