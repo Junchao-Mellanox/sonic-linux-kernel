@@ -1,0 +1,25 @@
+From 25b932cee64b91b335e534d2f6a956de24a9bd22 Mon Sep 17 00:00:00 2001
+From: junchao <junchao@contoso.com>
+Date: Wed, 7 Jul 2021 14:16:43 +0000
+Subject: [PATCH] Temp fix dead loop issue by junchao
+
+---
+ drivers/platform/x86/mlx-platform.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
+index 9d443a008..cd26ace08 100644
+--- a/drivers/platform/x86/mlx-platform.c
++++ b/drivers/platform/x86/mlx-platform.c
+@@ -4474,7 +4474,7 @@ static int __init mlxplat_dmi_modular_matched(const struct dmi_system_id *dmi)
+ 	mlxplat_led = &mlxplat_modular_led_data;
+ 	mlxplat_regs_io = &mlxplat_modular_regs_io_data;
+ 	mlxplat_fan = &mlxplat_default_fan_data;
+-	for (i = 0; i < ARRAY_SIZE(mlxplat_mlxcpld_wd_set_type2); i)
++	for (i = 0; i < ARRAY_SIZE(mlxplat_mlxcpld_wd_set_type2); i++)
+ 		mlxplat_wd_data[i] = &mlxplat_mlxcpld_wd_set_type2[i];
+ 	mlxplat_i2c = &mlxplat_mlxcpld_i2c_ng_data;
+ 	mlxplat_regmap_config = &mlxplat_mlxcpld_regmap_config_eth_modular;
+-- 
+2.20.1
+

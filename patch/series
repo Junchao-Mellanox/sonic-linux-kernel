@@ -86,6 +86,7 @@ net-sch_generic-fix-the-missing-new-qdisc-assignment.patch
 0032-platform-mellanox-mlxreg-hotplug-Use-capability-regi.patch
 
 0035-platform-x86-mlx-platform-Extend-FAN-and-LED-config-.patch
+0037-hwmon-pmbus-Add-support-for-MPS-Multi-phase-mp2888-c.patch
 0045-i2c-mlxcpld-Update-module-license.patch
 0046-i2c-mlxcpld-Add-support-for-I2C-bus-frequency-settin.patch
 0047-i2c-mux-mlxcpld-Update-module-license.patch
@@ -138,7 +139,8 @@ net-sch_generic-fix-the-missing-new-qdisc-assignment.patch
 0104-TMP-platform-mellanox-TMP-bring-up-fixes-registers.patch
 0105-squash-to-TMP-net-mlxsw-Extend-mlxsw-driver-with-bring-u.patch
 0106-platform-mellanox-TMP-bring-up-fixes-reset-cuase.patch
-
+0001-Temp-fix-miss-patch-by-junchao.patch
+0001-Temp-fix-dead-loop-issue-by-junchao.patch
 ############################################################
 #
 # Internal patches will be added below (placeholder)
