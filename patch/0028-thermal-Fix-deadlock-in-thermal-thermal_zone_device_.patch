@@ -65,25 +65,19 @@ Cc: stable@vger.kernel.org
 Signed-off-by: Wei Wang <wvw@google.com>
 Signed-off-by: Zhang Rui <rui.zhang@intel.com>
 ---
- drivers/thermal/thermal_core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/thermal/thermal_core.c | 2 ++--
+ 1 file changed, 1 insertions(+), 1 deletions(-)
 
-diff --git a/drivers/thermal/thermal_core.c b/drivers/thermal/thermal_core_orig.c
-similarity index 99%
-rename from drivers/thermal/thermal_core.c
-rename to drivers/thermal/thermal_core_orig.c
-index f5a84db55..3d5694b98 100644
+diff --git a/drivers/thermal/thermal_core.c b/drivers/thermal/thermal_core.c
+index f5a84db55..7b0ffc1c0 100644
 --- a/drivers/thermal/thermal_core.c
-+++ b/drivers/thermal/thermal_core_orig.c
-@@ -308,7 +308,7 @@ static void monitor_thermal_zone(struct thermal_zone_device *tz)
- 	else if (tz->polling_delay)
- 		thermal_zone_device_set_polling(tz, tz->polling_delay);
++++ b/drivers/thermal/thermal_core.c
+@@ -296,7 +296,7 @@ static void thermal_zone_device_set_polling(struct thermal_zone_device *tz,
+ 		mod_delayed_work(system_freezable_wq, &tz->poll_queue,
+ 				 msecs_to_jiffies(delay));
  	else
--		thermal_zone_device_set_polling(tz, 0);
-+		cancel_delayed_work_sync(&tz->poll_queue);
- 
- 	mutex_unlock(&tz->lock);
+-		cancel_delayed_work_sync(&tz->poll_queue);
++		cancel_delayed_work(&tz->poll_queue);
  }
--- 
-2.20.1
-
+ 
+ static void monitor_thermal_zone(struct thermal_zone_device *tz)
