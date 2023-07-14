@@ -1,5 +1,5 @@
 # This series applies on GIT commit 18c5597832fcf6988111b05a9a1607ae148723c
-# Note: Markers should start with "###->". 
+# Note: Markers should start with "###->".
 #       Header should end with .*-start eg: any_description-start
 #       Footer must end with .*-end eg: any_description-end
 #       Markers should not be nested
@@ -332,6 +332,7 @@ kernel-compat-always-include-linux-compat.h-from-net-compat.patch
 0282-platform-mellanox-mlx-platform-add-support-of-5th-CP.patch
 0283-mlxsw-core_hwmon-Align-modules-label-name-assignment.patch
 0284-platform-mellanox-mlx-platform-fix-CPLD4-PN-report.patch
+aaa.patch
 ###-> mellanox_hw_mgmt-end
 
 # Cisco patches for 5.10 kernel
