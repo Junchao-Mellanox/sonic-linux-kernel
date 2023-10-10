@@ -60,6 +60,32 @@ DEBIAN_FILE_URL = "$(SOURCE_FILE_BASE_URL)/$(DEBIAN_FILE)"
 ORIG_FILE_URL = "$(SOURCE_FILE_BASE_URL)/$(ORIG_FILE)"
 
 $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
+	# Include any non upstream patches
+	rm -rf $(NON_UP_DIR)
+	mkdir -p $(NON_UP_DIR)
+
+	if [ x${INCLUDE_EXTERNAL_PATCHES} == xy ]; then
+		if [ ! -z ${EXTERNAL_KERNEL_PATCH_URL} ]; then
+			wget $(EXTERNAL_KERNEL_PATCH_URL) -O patches.tar
+			tar -xf patches.tar -C $(NON_UP_DIR)
+		else
+			if [ -d "$(EXTERNAL_KERNEL_PATCH_LOC)" ]; then
+				cp -r $(EXTERNAL_KERNEL_PATCH_LOC)/* $(NON_UP_DIR)/
+			fi
+		fi
+	fi
+
+	if [ -f "$(NON_UP_DIR)/external-changes.patch" ]; then
+		cat $(NON_UP_DIR)/external-changes.patch
+		git stash -- patch/
+		git apply $(NON_UP_DIR)/external-changes.patch
+	fi
+
+	if [ -d "$(NON_UP_DIR)/patches" ]; then
+		echo "Copy the non upstream patches"
+		cp $(NON_UP_DIR)/patches/*.patch patch/
+	fi
+
 	# Obtaining the Debian kernel source
 	rm -rf $(BUILD_DIR)
 	wget -O $(DSC_FILE) $(DSC_FILE_URL)
