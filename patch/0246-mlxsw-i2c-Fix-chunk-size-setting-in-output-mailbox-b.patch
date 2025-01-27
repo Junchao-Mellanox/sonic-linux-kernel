@@ -23,14 +23,14 @@ Signed-off-by: Vadim Pasternak <vadimp@nvidia.com>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlxsw/i2c.c b/drivers/net/ethernet/mellanox/mlxsw/i2c.c
-index ba31540f1..e04557afc 100644
+index ba31540f1..82b8d376d 100644
 --- a/drivers/net/ethernet/mellanox/mlxsw/i2c.c
 +++ b/drivers/net/ethernet/mellanox/mlxsw/i2c.c
 @@ -466,7 +466,8 @@ mlxsw_i2c_cmd(struct device *dev, u16 opcode, u32 in_mod, size_t in_mbox_size,
  	} else {
  		/* No input mailbox is case of initialization query command. */
  		reg_size = MLXSW_I2C_MAX_DATA_SIZE;
--		num = DIV_ROUND_UP(reg_size, mlxsw_i2c->block_size);
+-		num = reg_size / mlxsw_i2c->block_size;
 +		num = reg_size / (mlxsw_i2c->block_size -
 +				  (mlxsw_i2c->block_size % MLXSW_I2C_BLK_DEF));
  
